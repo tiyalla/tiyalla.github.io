@@ -1,0 +1,235 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fcf4f6;
+    -webkit-box-sizing: border-box;
+
+
+}
+
+body{
+    width:85%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    font-family: "Adobe Garamond Pro";
+    font-size: 16px;
+}
+
+
+/**
+**
+** Header Section
+**/
+
+header{
+    border-bottom: 3px solid #fcf4f6 ;
+    display: flex;
+}
+.header-content{
+    width: 100%;
+    text-align: right;
+    padding-right: 5%;
+    justify-content: flex-end;
+
+}
+.header-img{
+    width: 15%;
+    height: 30%;
+    padding-left: 3%;
+    padding-top: 2%;
+}
+/**
+**
+** Main Section
+**
+**
+**/
+
+/**
+**
+** About Me Hero
+**
+**
+**/
+
+
+.about-me{
+    position: relative;
+    width: 100%;
+    height:500px;
+    border-bottom: 3px solid #fcf4f6 ;
+    padding: 2%;
+
+}
+.about-me img{
+    margin-left: 0;
+    margin-right: 0;
+    width: 90%;
+    height: 100%;
+    display: block;
+
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 90%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rosybrown;
+}
+.about-me:hover .overlay {
+    opacity: 1;
+}
+.about-me-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    font-size: 30px;
+    width: 60%;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+/**
+**
+** My featured work
+**
+**/
+
+.features{
+    width: 100%;
+}
+
+#features-header{
+    padding-left: 40%;
+}
+
+.all-features div{
+    display: inline-block;
+    text-align: center;
+    padding-left: 5%;
+    padding-bottom: 3%;
+}
+
+.featured-img{
+    top: 0;
+    left: 0;
+    width: 280px;
+
+}
+
+a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    padding-top: 4%;
+}
+
+a:hover{
+    color: rosybrown;
+}
+
+/**
+**
+** Footer
+**
+**/
+
+
+.socials{
+    width: 100%;
+    text-align: center;
+    background-color:antiquewhite;
+}
+
+.socials div{
+    display: inline-block;
+    padding-top: 1%;
+    padding-left: 2%;
+
+}
+
+.social-link img{
+    width: 30px;
+    height: 30px;
+}
+
+/**
+**
+** Responsive
+**
+**/
+
+@media screen and (min-width: 951px) and (max-width: 1200px) {
+    .all-features div{
+        padding-left: 8%;
+    }
+    .featured-img{
+        max-width: 200px;
+    }
+}
+
+@media screen and (min-width: 901px) and (max-width: 950px) {
+    .all-features div{
+        padding-left: 6%;
+    }
+    .featured-img{
+        max-width: 180px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+    .all-features div{
+        display: block;
+        text-align: center;
+    }
+    .featured-img{
+        width: 180px;
+    }
+    #features-header{
+        padding-left: 34%;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .about-me img{
+        margin-left: -2px;
+        width: 85%;
+        height: 90%;
+        display: block;
+
+    }
+
+    .about-me-text{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    #features-header{
+        text-align: center;
+        padding-left: 2%;
+    }
+    .all-features div{
+        margin-left: 20%;
+    }
+    .featured-img{
+        width: 200px;
+    }
+}
