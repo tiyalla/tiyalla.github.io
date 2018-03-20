@@ -229,9 +229,10 @@ a:hover {
 
     }
 
-   /* .about-me-text {
-        font-size: 3.5vw;
-    } */
+    .featured-img {
+        margin-left: -12%;
+        width: 200px;
+    }
 }
 
 @media screen and (max-width: 499px) {
@@ -248,7 +249,7 @@ a:hover {
         margin-left: -12%;
         width: 200px;
     }
-    
+
 
 
 }
