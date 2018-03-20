@@ -8,10 +8,7 @@ html {
     height: 100%;
     background-color: #fcf4f6;
     -webkit-box-sizing: border-box;
-<<<<<<< HEAD:css/main.css
-    
-=======
->>>>>>> 2e686d98c3a629fe20377ad3c17663a598a3175f:css/main.css
+
 
 }
 
@@ -67,26 +64,16 @@ header {
 .about-me {
     position: relative;
     width: 100%;
-<<<<<<< HEAD:css/main.css
     height: auto;
     border-bottom: 3px solid #fcf4f6;
     margin-left: 0;
     margin-top: 0;
-=======
-    height: 500px;
-    border-bottom: 3px solid #fcf4f6;
-    padding: 2%;
->>>>>>> 2e686d98c3a629fe20377ad3c17663a598a3175f:css/main.css
 
 }
 
 .about-me img {
-<<<<<<< HEAD:css/main.css
     padding: 2%;
     margin-left: 4%;
-=======
-    margin-left: 0;
->>>>>>> 2e686d98c3a629fe20377ad3c17663a598a3175f:css/main.css
     margin-right: 0;
     width: 90%;
     height: auto;
@@ -235,26 +222,16 @@ a:hover {
 
 @media screen and (max-width: 599px) {
     .about-me img {
-<<<<<<< HEAD:css/main.css
         margin-left: 4%;
-=======
-        margin-left: -2px;
->>>>>>> 2e686d98c3a629fe20377ad3c17663a598a3175f:css/main.css
         width: 85%;
         height: 90%;
         display: block;
 
     }
 
-<<<<<<< HEAD:css/main.css
    /* .about-me-text {
         font-size: 3.5vw;
     } */
-=======
-    .about-me-text {
-        font-size: 22px;
-    }
->>>>>>> 2e686d98c3a629fe20377ad3c17663a598a3175f:css/main.css
 }
 
 @media screen and (max-width: 499px) {
@@ -268,20 +245,14 @@ a:hover {
     }
 
     .featured-img {
-<<<<<<< HEAD:css/main.css
         margin-left: -12%;
-=======
->>>>>>> 2e686d98c3a629fe20377ad3c17663a598a3175f:css/main.css
         width: 200px;
     }
 
     .about-me img {
-        margin-left: 8%;
+        margin-left: 4%;
     }
 
-    /*.about-me-text {
-        font-size: 16px;
-        font-size: 3.5vw;
-    }*/
+
 }
 
