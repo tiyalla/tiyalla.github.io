@@ -1,18 +1,18 @@
-*{
+* {
     box-sizing: border-box;
 }
-html{
+
+html {
     margin: 0;
     width: 100%;
     height: 100%;
     background-color: #fcf4f6;
     -webkit-box-sizing: border-box;
 
-
 }
 
-body{
-    width:85%;
+body {
+    width: 85%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -21,29 +21,31 @@ body{
     font-size: 16px;
 }
 
-
 /**
 **
 ** Header Section
 **/
 
-header{
-    border-bottom: 3px solid #fcf4f6 ;
+header {
+    border-bottom: 3px solid #fcf4f6;
     display: flex;
 }
-.header-content{
+
+.header-content {
     width: 100%;
     text-align: right;
     padding-right: 5%;
     justify-content: flex-end;
 
 }
-.header-img{
+
+.header-img {
     width: 15%;
     height: 30%;
     padding-left: 3%;
     padding-top: 2%;
 }
+
 /**
 **
 ** Main Section
@@ -58,16 +60,16 @@ header{
 **
 **/
 
-
-.about-me{
+.about-me {
     position: relative;
     width: 100%;
-    height:500px;
-    border-bottom: 3px solid #fcf4f6 ;
+    height: 500px;
+    border-bottom: 3px solid #fcf4f6;
     padding: 2%;
 
 }
-.about-me img{
+
+.about-me img {
     margin-left: 0;
     margin-right: 0;
     width: 90%;
@@ -75,7 +77,8 @@ header{
     display: block;
 
 }
-.overlay{
+
+.overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -87,10 +90,12 @@ header{
     transition: .5s ease;
     background-color: rosybrown;
 }
+
 .about-me:hover .overlay {
     opacity: 1;
 }
-.about-me-text{
+
+.about-me-text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -110,29 +115,29 @@ header{
 **
 **/
 
-.features{
+.features {
     width: 100%;
 }
 
-#features-header{
+#features-header {
     padding-left: 40%;
 }
 
-.all-features div{
+.all-features div {
     display: inline-block;
     text-align: center;
     padding-left: 5%;
     padding-bottom: 3%;
 }
 
-.featured-img{
+.featured-img {
     top: 0;
     left: 0;
     width: 280px;
 
 }
 
-a{
+a {
     text-decoration: none;
     display: block;
     text-align: center;
@@ -141,7 +146,7 @@ a{
     padding-top: 4%;
 }
 
-a:hover{
+a:hover {
     color: rosybrown;
 }
 
@@ -151,21 +156,20 @@ a:hover{
 **
 **/
 
-
-.socials{
+.socials {
     width: 100%;
     text-align: center;
-    background-color:antiquewhite;
+    background-color: antiquewhite;
 }
 
-.socials div{
+.socials div {
     display: inline-block;
     padding-top: 1%;
     padding-left: 2%;
 
 }
 
-.social-link img{
+.social-link img {
     width: 30px;
     height: 30px;
 }
@@ -177,38 +181,42 @@ a:hover{
 **/
 
 @media screen and (min-width: 951px) and (max-width: 1200px) {
-    .all-features div{
+    .all-features div {
         padding-left: 8%;
     }
-    .featured-img{
+
+    .featured-img {
         max-width: 200px;
     }
 }
 
 @media screen and (min-width: 901px) and (max-width: 950px) {
-    .all-features div{
+    .all-features div {
         padding-left: 6%;
     }
-    .featured-img{
+
+    .featured-img {
         max-width: 180px;
     }
 }
 
 @media screen and (min-width: 500px) and (max-width: 900px) {
-    .all-features div{
+    .all-features div {
         display: block;
         text-align: center;
     }
-    .featured-img{
+
+    .featured-img {
         width: 180px;
     }
-    #features-header{
+
+    #features-header {
         padding-left: 34%;
     }
 }
 
 @media screen and (max-width: 599px) {
-    .about-me img{
+    .about-me img {
         margin-left: -2px;
         width: 85%;
         height: 90%;
@@ -216,20 +224,22 @@ a:hover{
 
     }
 
-    .about-me-text{
+    .about-me-text {
         font-size: 22px;
     }
 }
 
 @media screen and (max-width: 499px) {
-    #features-header{
+    #features-header {
         text-align: center;
         padding-left: 2%;
     }
-    .all-features div{
+
+    .all-features div {
         margin-left: 20%;
     }
-    .featured-img{
+
+    .featured-img {
         width: 200px;
     }
 }
