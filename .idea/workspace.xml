@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec141c2-fe7b-4db7-918b-c5f98355840d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Coding.jpg" afterPath="$PROJECT_DIR$/img/Coding.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tonye-Logo.png" afterPath="$PROJECT_DIR$/img/Tonye-Logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tonye_Smiling.JPG" afterPath="$PROJECT_DIR$/img/Tonye_Smiling.JPG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Udacity_logo.png" afterPath="$PROJECT_DIR$/img/Udacity_logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/codepen.png" afterPath="$PROJECT_DIR$/img/codepen.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/github.png" afterPath="$PROJECT_DIR$/img/github.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/linkedin.png" afterPath="$PROJECT_DIR$/img/linkedin.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/quoteapp.png" afterPath="$PROJECT_DIR$/img/quoteapp.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/weatherapp.png" afterPath="$PROJECT_DIR$/img/weatherapp.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wikiapp.png" afterPath="$PROJECT_DIR$/img/wikiapp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
     </list>
     <ignored path="tiyalla.github.io..iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +29,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
+            <state relative-caret-position="750">
               <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
               <folding />
             </state>
@@ -50,8 +39,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2570">
-              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            <state relative-caret-position="150">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -67,6 +56,7 @@
       <list>
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/main.css" />
+        <option value="$PROJECT_DIR$/css/main.css" />
       </list>
     </option>
   </component>
@@ -208,12 +198,12 @@
       <option name="presentableId" value="Default" />
       <updated>1521501731354</updated>
       <workItem from="1521501732571" duration="168000" />
-      <workItem from="1521555269169" duration="451000" />
+      <workItem from="1521555269169" duration="2182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="619000" />
+    <option name="totallyTimeSpent" value="2350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="23" width="1197" height="709" extended-state="0" />
@@ -263,7 +253,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
+        <state relative-caret-position="750">
           <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
           <folding />
         </state>
@@ -271,8 +261,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2570">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        <state relative-caret-position="150">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding />
         </state>
       </provider>
