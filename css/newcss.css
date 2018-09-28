@@ -8,11 +8,10 @@ html,body {
     height: 100%;
     -webkit-box-sizing: border-box;
     position: relative;
+    overflow-x: hidden;
 }
 
-/*div {*/
-    /*height: 100%;*/
-/*}*/
+
 
 img{
     width: 100%;
@@ -156,6 +155,26 @@ img.logo{
     width: 30px;
     height: 30px;
 }
+/****************** RESPONSIVE MOBILE DESIGN ******************/
+
+
+@media screen and (max-width: 440px){
+    #all-projects{
+        margin-left: 6%;
+    }
+
+    ul{
+        padding-top: -3%;
+    }
+
+    ul li{
+        padding: 5%;
+
+    }
+    .projects{
+        margin-left: -10%;
+    }
+}
 
 @media screen and (min-width: 650px) and (max-width: 990px){
     #all-projects{
@@ -172,12 +191,21 @@ img.logo{
 }
 
 
+@media screen and (min-width: 441px) and (max-width: 649px){
+    ul li{
+        padding: 7%;
+    }
+
+}
+
 @media screen and (min-width: 650px){
     #right-half h4{
         padding-top: 40vh;
     }
 }
-    @media screen and (max-width: 649px){
+
+
+@media screen and (max-width: 649px){
     #all-projects{
         grid-template-columns: 1fr;
         margin-left: 12%;
@@ -197,18 +225,9 @@ img.logo{
         margin-top: 25%;
         padding: 5%;
     }
-    ul li{
-        padding: 7%;
-        text-align: center;
 
-    }
     ul{
         margin-left: -10%;
     }
 }
 
-@media screen and (max-width: 440px){
-    #all-projects{
-        margin-left: 6%;
-    }
-}
