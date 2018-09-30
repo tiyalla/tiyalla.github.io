@@ -27,7 +27,17 @@ h3{
     width: 100%;
 
 }
+#hideAll
+{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #fcf4f6;
+    z-index: 99; /* Higher than anything else in the document */
 
+}
 #left-half{
     position: absolute;
     left: 0px;
