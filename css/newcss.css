@@ -176,7 +176,7 @@ img.logo{
 
     ul{
         padding-top: -3%;
-        /*margin-bottom: 50%;*/
+
     }
 
     ul li{
@@ -197,6 +197,7 @@ img.logo{
 
         padding: 4%;
     }
+
     #right-half h4{
         font-size: 20px;
     }
@@ -241,13 +242,12 @@ img.logo{
         padding: 5%;
     }
 
-
     .index-footer{
-        margin-top: 27%;
-        padding-top: 1px;
-        position: relative;
-        width: auto;
-
+        /*margin-top: 27%;*/
+        /*padding-top: 14%;*/
+        position: absolute;
+        width: 100%;
+        bottom: 0;
     }
 
     ul{
