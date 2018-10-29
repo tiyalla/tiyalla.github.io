@@ -1,4 +1,4 @@
-baseurl = "http://www.tonyeiyalla.com" # Hostname (and path) to the root.
+baseurl = "https://tiyalla.github.io" # Hostname (and path) to the root.
 
 title = "Tonye Iyalla" # Site title.
 theme = "coder-portfolio" # Set the theme.
