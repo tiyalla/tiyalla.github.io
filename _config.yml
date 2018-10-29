@@ -1,6 +1,0 @@
-theme: jekyll-theme-minimal
-plugins:
-  - jekyll-redirect-from
-
-permalink: "html/projects.html"
-redirect_to: "/projects"
