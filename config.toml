@@ -1,4 +1,5 @@
-baseurl = "http://www.example.com" # Hostname (and path) to the root.
+baseurl = "http://www.tonyeiyalla.com" # Hostname (and path) to the root.
+
 title = "Tonye Iyalla" # Site title.
 theme = "coder-portfolio" # Set the theme.
 languagecode = "en" # The site’s language code used to generate RSS.
