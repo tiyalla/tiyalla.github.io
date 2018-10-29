@@ -72,41 +72,3 @@ var foo = function (bar) {
 
 console.log(foo(5));
 ```
-
-## Private Content  
-
-You can create private content with this short code  
-
-```
-{% private %}  
-Write private content here  
-{% /private %}  
-```
-
-When using for inspection, please add "{}" so that you can see the notation of shortcode
-
-## Private Content Demo
-
-Please click on fixed bottom bar 'Click'  
-private content is displayed here  
-
-{{% private %}}  
-## Private Content
-This is private content
-{{% /private %}}  
-
-## Portfolio Content
-
-You can create portfolio content with this short code  
-
-```
-{% portfolio image="/images/tn.png" alt="Coder Portfolio" %}  
-Write portfolio content here  
-{% /portfolio %}  
-```
-
-When using for inspection, please add "{}" so that you can see the notation of shortcode
-
-## Portfolio Content Demo
-
-Please see "projects" for demo.  
