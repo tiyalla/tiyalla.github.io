@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tonye Iyalla</title>
+    <link>https://tiyalla.github.io/</link>
+    <description>Recent content on Tonye Iyalla</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tiyalla.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Predictive Analytics in HealthCare</title>
+      <link>https://tiyalla.github.io/posts/predictiveanalytics/</link>
+      <pubDate>Sun, 28 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiyalla.github.io/posts/predictiveanalytics/</guid>
+      <description>Introduction Over the years, the healthcare industry and its organizations have invested millions of dollars in building data warehouses and acquiring data analysts – for the sole purpose of understanding their data, and using this understanding to improve a patient’s life. The historical problem with having these data warehouses is that they are not actionable; they tell what is happening but not &amp;ldquo;why&amp;rdquo;.
+What is Predictive Analytics Predictive analytics is the practical result of Big Data and Business intelligence.</description>
+    </item>
+    
+    <item>
+      <title>Theme Demo</title>
+      <link>https://tiyalla.github.io/posts/theme-demo/</link>
+      <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiyalla.github.io/posts/theme-demo/</guid>
+      <description>Style Demo h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading This is bold text
+This is bold text
+This is italic text
+This is italic text
+Deleted text
+This is text with inline math $\sum_{n=1}^{\infty} 2^{-n} = 1$ and with math blocks:
+$$ \sum_{n=1}^{\infty} 2^{-n} = 1 $$
+   Heading Another heading     text text   text text   text text     Block quotes are written like so.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hugo</title>
+      <link>https://tiyalla.github.io/posts/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiyalla.github.io/posts/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at installing hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://tiyalla.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiyalla.github.io/about/</guid>
+      <description>Hi! I&amp;rsquo;m Tonye.
+I&amp;rsquo;m currently pursuing my master&amp;rsquo;s degree in Software Engineering at Villanova University, nearby to Philadelphia, PA. I am keen on using my knowledge in software and technology to provide solutions to problems around the world. Especially problems in third world countries. I have professional experience working as a developer in front-end web development and Java development.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://tiyalla.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiyalla.github.io/contact/</guid>
+      <description>Want to contact me? Feel free to email me.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://tiyalla.github.io/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiyalla.github.io/projects/</guid>
+      <description>Wiki app About Using html, css, jquery and ajax to search for topics on user entry by retrieving information from wikipedia using wikipedia&amp;rsquo;s api.
+ Quote Generator App About Using html, css, jquery and ajax to generate random quotes by retrieving quotes from forismatic api and sharing on twitter.
+ Matching Game About Using html, css, javascript(ES6) to build a Memory game as part of Udacity&amp;rsquo;s Front-end development Project</description>
+    </item>
+    
+  </channel>
+</rss>
