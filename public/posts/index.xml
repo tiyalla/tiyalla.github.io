@@ -32,22 +32,6 @@ What is Predictive Analytics Predictive analytics is the practical result of Big
     </item>
     
     <item>
-      <title>Theme Demo</title>
-      <link>https://tiyalla.github.io/posts/theme-demo/</link>
-      <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiyalla.github.io/posts/theme-demo/</guid>
-      <description>Style Demo h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading This is bold text
-This is bold text
-This is italic text
-This is italic text
-Deleted text
-This is text with inline math $\sum_{n=1}^{\infty} 2^{-n} = 1$ and with math blocks:
-$$ \sum_{n=1}^{\infty} 2^{-n} = 1 $$
-   Heading Another heading     text text   text text   text text     Block quotes are written like so.</description>
-    </item>
-    
-    <item>
       <title>Getting Started with Hugo</title>
       <link>https://tiyalla.github.io/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
