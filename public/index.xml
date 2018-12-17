@@ -6,10 +6,20 @@
     <description>Recent content on Tonye Iyalla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://tiyalla.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Evaluating Machine Learning Algorithms&#39; performance in predicting presence of heart disease</title>
+      <link>https://tiyalla.github.io/posts/heartdiseasepredictions/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiyalla.github.io/posts/heartdiseasepredictions/</guid>
+      <description>Introduction Heart disease is one of the deadliest disease patients face and early detection/prediction is key to achieving timely diagnosis and decision. The key to managing and detecting cardiovascular disease is to evaluate large scores of datasets, compare and mine for information that can be used to predict, prevent, manage and treat chronic diseases such as heart attacks.
+Currently, there are a variety of machine learning algorithms that are popular and in use for predicting and performing various tasks.</description>
+    </item>
     
     <item>
       <title>Predictive Analytics in HealthCare</title>
