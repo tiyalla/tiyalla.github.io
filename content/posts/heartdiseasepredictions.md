@@ -1,6 +1,6 @@
 +++
 date = "2018-12-12"
-title = "Evaluating Machine Learning Algorithms' performance in predicting presence of heart disease"
+title = "Evaluating Machine Learning Algorithm's performance in predicting presence of heart disease"
 math = "true"
 
 +++
