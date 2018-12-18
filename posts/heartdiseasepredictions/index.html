@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Tonye Iyalla">
+    <meta name="description" content="https://tiyalla.github.io">
+    <meta name="keywords" content="blog,developer,personal">
+    
+    <meta property="og:site_name" content="Tonye Iyalla">
+    <meta property="og:title" content="
+  Evaluating Machine Learning Algorithm&#39;s performance in predicting presence of heart disease - Tonye Iyalla
+">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tiyalla.github.io/posts/heartdiseasepredictions/">
+    <meta property="og:image" content="https://tiyalla.github.io">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://tiyalla.github.io/posts/heartdiseasepredictions/">
+    <meta name="twitter:image" content="https://tiyalla.github.io">
+
+    <base href="https://tiyalla.github.io">
+    <title>
+  Evaluating Machine Learning Algorithm&#39;s performance in predicting presence of heart disease - Tonye Iyalla
+</title>
+
+    <link rel="canonical" href="https://tiyalla.github.io/posts/heartdiseasepredictions/">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://tiyalla.github.io/css/style.min.css">
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://tiyalla.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://tiyalla.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.51" />
+  </head>
+
+  <body class="">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">Tonye Iyalla</a>
+    <input type="checkbox" id="menu-control"/>
+    <label class="menu-mobile  float-right " for="menu-control">
+      <span class="btn-mobile  float-right ">&#9776;</span>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://tiyalla.github.io/about">About</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://tiyalla.github.io/posts">Blog</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://tiyalla.github.io/projects">Projects</a>
+            </li>
+          
+            <li class="navigation-item  align-center ">
+              <a class="navigation-link" href="https://tiyalla.github.io/contact">Contact</a>
+            </li>
+          
+        
+        
+      </ul>
+    </label>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Evaluating Machine Learning Algorithm&#39;s performance in predicting presence of heart disease</h1>
+      <h2 class="date">December 13, 2018</h2>
+
+      
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full">
+          MathJax.Hub.Config({
+            tex2jax: {
+              inlineMath: [['$','$']],
+              displayMath: [['$$','$$']],
+              processEscapes: true,
+              processEnvironments: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+              TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+            }
+          });
+          MathJax.Hub.Queue(function() {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+          });
+          </script>
+      
+    </header>
+
+    
+
+<h3 id="introduction">Introduction</h3>
+
+<p>Heart disease is one of the deadliest disease patients face and early detection/prediction is key to achieving timely diagnosis and decision. The key to managing and detecting cardiovascular disease is to evaluate large scores of datasets, compare and mine for information that can be used to predict, prevent, manage and treat chronic diseases such as heart attacks.</p>
+
+<p>Currently, there are a variety of machine learning algorithms that are popular and in use for predicting and performing various tasks. The aim is to compare 4 of the most popular and efficient algorithms on the same data set and evaluate how well they can make heart disease predictions or early detections.</p>
+
+<p>The main goal of this project was to evaluate 4 machine learning algorithms by creating a learning model and evaluating how well they perform on the same data set.</p>
+
+<h3 id="machine-learning">Machine Learning</h3>
+
+<p>Machine learning is a technology that gives computers the ability to learn from past experiences (or data), just like humans. From self-driving cars, to discovering planets — the applications of ML are immense. It uses computational methods to “learn” information directly from data without relying on a predetermined equation as a model. The algorithms adaptively improve their performance as the number of samples available for learning increases.</p>
+
+<p>Machine learning uses a few types of techiques - Supervised Learning, Unsupervised Learning, Semi-supervised, Clustering etc.
+<div align="center">
+<img src="images/machinelearning.PNG" alt="" />
+</div>
+<p align="center"> <strong>Figure 1: Machine learning techniques. [via: Matlab]</strong> </p></p>
+
+<h5 id="supervised-learning">Supervised learning</h5>
+
+<p>As the name suggests needs a human to supervise and tell the computer what to be trained for. We feed the computer with training data containing various features, and we also tell it the right answer. For my project, I used Supervised learning to build my learning model.</p>
+
+<h5 id="unsupervised-learning">Unsupervised learning</h5>
+
+<p>We let the computer discover patterns on its own, and then choose the one that makes most sense.</p>
+
+<h5 id="supervised-learning-can-be-used-to-solve-two-problems-classification-and-regression">Supervised learning can be used to solve two problems: Classification and regression</h5>
+
+<p><strong>Classification:</strong> It is used when you need to categorize a certain observation into a group.For example — to predict if a given email is spam or not spam. Each learning example is associated with a qualitative target value, which corresponds to a class (e.g., cancer, healthy). There can be two classes (binary classification) or more (multiclass classification).</p>
+
+<p><strong>Regression:</strong> It is used for predicting and forecasting, but for continuous values. For example, consider you’re a real estate agent who wants to sell a house that is 2000 sq.feet, has 3 bedrooms, has 5 schools in the area. What price should you sell the house for?
+Each learning example is associated with a quantitative target value (e.g., survial time). The goal of the model is to estimate the correct output, given a feature vector.</p>
+
+<p><img src="images/classandregress.png" alt="" />
+<p align="center"> <strong>Figure 2: Classification and Regression. [via: Microbiome]</strong> </p></p>
+
+<h3 id="mechanism-of-machine-learning">Mechanism of Machine Learning</h3>
+
+<p><div align="center">
+<img src="images/mlmechanism.png" alt="" />
+</div>
+<p align="center"> <strong>Figure 3: Machine learning pipeline. [via: Datanami]</strong> </p></p>
+
+<p>For my project, I built a classification model using Supervised learning. Supervised learning is done is several stages, here they are:</p>
+
+<p><strong>1.Data preparation &amp; transformation</strong> <br>
+The first step is to analyze the data set and prepare it to be used for training purposes. Once data is understood, it is preprocessed and feature transformations is applied to it.</p>
+
+<p>Next, the data is split into two sets — a bigger chunk for training, and the other smaller chunk for testing. The classifier uses the training data-set to “learn”. We need a separate chunk of data for testing and validation, so that we can see how well the model works on data that it hasn’t seen before.<br></p>
+
+<p><strong>2.Feature extraction</strong><br>
+The initial set of raw variables is reduced to more manageable groups (features) for processing, while still accurately and completely describing the original data set.</p>
+
+<p><strong>3.Training</strong><br>
+To train a model, a function is created that internally uses the algorithms of choice, and use the data to train itself and understand patterns, or learn.<br></p>
+
+<p><strong>4.Testing and Validation</strong><br>
+Once the model is trained, the nest step is to give it new unseen data, and it’ll should give an output or a prediction.</p>
+
+<h3 id="about-the-dataset">About the Dataset</h3>
+
+<p>The data set used for this project was gotten from a Kaggle-  web-based data-science environment. The data set contains patients information gotten from 4 hospital databases - Cleveland, Hungary, Switzerland, Virginia. The data contains 76 attributes about the patient and all attributes are numerical, but for my project a subset of 14 of them was used.</p>
+
+<p>Experiments with the data concentrates on simply attempting to distinguish presence (value 1) from absence (value 0).</p>
+
+<p><strong>Attributes</strong><br>
+1. age,<br>
+2. sex,<br>
+3. chest pain (cp), <br>
+4. resting blood pressure (trestbps), <br>
+5. cholesterol level (chol), <br>
+6. fasting blood sugar (fbs) , <br>
+7. resting electrocardiographic results (restecg), <br>
+8. maximum heart rate achieved  (thalach), <br>
+9. exercise induced angina (exang), <br>
+10. ST depression induced by exercise relative to rest(oldpeak),<br>
+11. the slope of the peak exercise ST segment (slope), <br>
+12. number of major vessels (0-3) colored by flourosopy (ca),<br>
+13. thallium heart scan  3 = normal; 6 = fixed defect; 7 = reversable defect  (thal), <br>
+14. target number (the predicted attribute) - angiographic disease status - presence (1) from absence (0).<br></p>
+
+<p><strong>Sample of the unprocessed data</strong><br>
+<br>
+<div align="center">
+<img src="images/unprocessed.PNG" alt="" />
+</div>
+<p align="center"> <strong>Figure 4: Unprocessed data</strong> </p></p>
+
+<p><strong>Sample of the processed data</strong><br>
+<br>
+<div align="center">
+<img src="images/processed.PNG" alt="" />
+</div>
+<p align="center"> <strong>Figure 5: Processed data</strong> </p></p>
+
+<h5 id="about-the-machine-learning-algorithms-used">About the machine learning algorithms used</h5>
+
+<p><strong>Gaussian Naive Bayes</strong>: it belongs to a family of algorithms called probabilistic classifiers or conditional probability, where it also assumes independence between features.</p>
+
+<p><strong>Decision Trees</strong>: a classification algorithm that uses tree-like data structures to model decisions and their possible outcomes.</p>
+
+<p><strong>Random Forests</strong>: works by using multiple decision trees — using a multitude of different decision trees with different predictions, then combines the results of those individual trees to give the final outcomes. It helps to correct possible overfitting that could occur from decision trees.</p>
+
+<p><strong>Logistic Regression</strong>:  in statistics used for prediction of outcome of a categorical dependent variable from a set of predictor or independent variables. In logistic regression the dependent variable is always binary.</p>
+
+<h5 id="data-distribution-br">Data Distribution<br></h5>
+
+<p>The dataset comprises of 361 rows of data, average patient age is  55, total numer of women is 120, total number of men is 241, all between ages 28 to 80 years old.
+<br>
+<div align="center">
+<img src="images/distribution1.PNG" alt="" />
+<img src="images/distribution2.PNG" alt="" /></p>
+
+<p><br>
+<br>
+There are 176 with no heart disease and 185 at risk of heart disease.
+<img src="images/targetDistribution.PNG" alt="" /></p>
+
+<p></div>
+<p align="center"> <strong>Figure 6: Output of data distribution</strong> </p></p>
+
+<h5 id="learning-model-br">Learning model<br></h5>
+
+<p>I begin by importing all the necessary libraries and then reading the processed heart patient dataset from the csv file and displaying the first 5 rows to make sure the data was read in correctly.
+<div align="center">
+<img src="images/readCSV.PNG" alt="" />
+</div>
+<p align="center"> <strong>Figure 7: First five rows of data</strong> </p></p>
+
+<p>Then I split the data into feature and target set. The first 13 columns are the feature set and the last column has the predicted attribute, so it&rsquo;s the target.</p>
+
+<p><strong>Features</strong>: These are individual independent variables that act as the input in your system. Prediction models use features to make predictions.</p>
+
+<p><strong>Target</strong>:  This is the predictor data that can predict with 100% accuracy on future data.<br></p>
+
+<p><div align="center">
+<img src="images/feature_target.PNG" alt="" />
+</div>
+<p align="center"> <strong>Figure 8: Splitting dataset into feature and target set</strong> </p></p>
+
+<p><strong>Classification</strong> -
+I use python&rsquo;s sklearn library&rsquo;s train_test_split method to split a bigger chunk of the data into training and test data.</p>
+
+<p><div align="center">
+<img src="images/train_test.PNG" alt="" />
+</div>
+<p align="center"> <strong>Figure 9: Training and Testing data</strong> </p></p>
+
+<p>Then using a  function [via: Medium] that accepts the Machine Learning algorithm, and the training and testing datasets, I run training and  evaluate the performance of the algorithms using some performance metrics.
+The function takes two classification metrics from sklearn library - fbeta_score and accuracy_score, these methods are used to evaluate performance metrics.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import two classification metrics from sklearn - fbeta_score and accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">fbeta_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+
+<span class="k">def</span> <span class="nf">train_predict_evaluate</span><span class="p">(</span><span class="n">learner</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span> 
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    inputs:
+</span><span class="s1">       - learner: the learning algorithm to be trained and predicted on
+</span><span class="s1">       - sample_size: the size of samples (number) to be drawn from training set
+</span><span class="s1">       - X_train: features training set
+</span><span class="s1">       - y_train: quality training set
+</span><span class="s1">       - X_test: features testing set
+</span><span class="s1">       - y_test: quality testing set
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Fit/train the learner to the training data using slicing with &#39;sample_size&#39; 
+</span><span class="s2">    using .fit(training_features[:], training_labels[:])
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get start time of training</span>
+    <span class="n">learner</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">])</span> <span class="c1">#Train the model</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get end time of training</span>
+    
+    <span class="c1"># Calculate the training time</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;train_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+    
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Get the predictions on the first 250 training samples(X_train), 
+</span><span class="s2">    and also predictions on the test set(X_test) using .predict()
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get start time</span>
+    <span class="n">predictions_train</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="mi">288</span><span class="p">])</span>
+    <span class="n">predictions_test</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get end time</span>
+    
+    <span class="c1"># Calculate the total prediction time</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;pred_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+            
+    <span class="c1"># Compute accuracy on the first 288 training samples which is y_train[:288]</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:</span><span class="mi">288</span><span class="p">],</span> <span class="n">predictions_train</span><span class="p">)</span>
+        
+    <span class="c1"># Compute accuracy on test set using accuracy_score()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions_test</span><span class="p">)</span>
+    
+    <span class="c1"># Compute F1-score on the the first 288 training samples using fbeta_score()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:</span><span class="mi">288</span><span class="p">],</span> <span class="n">predictions_train</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)</span>
+        
+    <span class="c1"># Compute F1-score on the test set which is y_test</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions_test</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)</span>
+       
+    <span class="c1"># Success</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;{} trained on {} samples.&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">learner</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">))</span>
+        
+    <span class="c1"># Return the results</span>
+    <span class="k">return</span> <span class="n">results</span></code></pre></div>
+<p><br>
+Next, in a new function, I initialize all 4 chosen algorithms, and run the training on each of them using the previous function. Then I aggregate and visualize all the results.
+<br></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import any three supervised learning classification models from sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="c1"># Initialize the three models</span>
+<span class="n">clf_A</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">clf_D</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="c1"># Calculate the number of samples for 1%, 10%, and 100% of the training data</span>
+<span class="c1"># HINT: samples_100 is the entire training set i.e. len(y_train)</span>
+<span class="c1"># HINT: samples_10 is 10% of samples_100</span>
+<span class="c1"># HINT: samples_1 is 1% of samples_100</span>
+<span class="n">samples_100</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">samples_10</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">samples_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Collect results on the learners</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">clf_B</span><span class="p">,</span> <span class="n">clf_C</span><span class="p">,</span><span class="n">clf_D</span><span class="p">]:</span>
+    <span class="n">clf_name</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">clf_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">samples</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">samples_1</span><span class="p">,</span> <span class="n">samples_10</span><span class="p">,</span> <span class="n">samples_100</span><span class="p">]):</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">clf_name</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="n">train_predict_evaluate</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">samples</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="c1">#print(results)</span>
+<span class="c1"># Run metrics visualization for the three supervised learning models chosen</span>
+<span class="n">vs</span><span class="o">.</span><span class="n">visualize_classification_performance</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></code></pre></div>
+<h5 id="the-evaluation-results">The evaluation results</h5>
+
+<p><div align="center">
+<img src="images/classifiers.PNG" alt="" />
+<img src="images/performanceMetrics.PNG" alt="" />
+<img src="images/Testmetrics.PNG" alt="" />
+</div>
+<p align="center"><strong>Figure 9: Performance Evaluation results</strong> </p></p>
+
+<h5 id="performance-metrics-br">Performance metrics<br></h5>
+
+<p><strong>Accuracy</strong> is by far the simplest and most commonly used performance metric. It is simply the ratio of correct predictions divided by the total data points.</p>
+
+<p><strong>Precision</strong> tells us what proportion of messages classified as spam were actually were spam. It is a ratio of true positives (emails classified as spam, and which are actually spam) to all positives (all emails classified as spam, irrespective of whether that was the correct classification). In other words, it is the ratio of True Positives/(True Positives + False Positives).</p>
+
+<p><strong>Recall</strong> or sensitivity tells us what proportion of messages that actually were spam were classified by us as spam. It is a ratio of true positives (words classified as spam, and which are actually spam) to all the words that were actually spam (irrespective of whether we classified them correctly). It is given by the formula — True Positives/(True Positives + False Negatives)</p>
+
+<p><strong>F1 Score</strong> is the harmonic average of precision and recall. It’s given by the formula:
+<img src="images/f1score.PNG" alt="" /></p>
+
+<h4 id="feature-importance">Feature importance</h4>
+
+<p>The result shows how well the algorithms performed in predictions. The first row shows the performance metrics on the training data, and the second row shows the metrics for the testing data (data which hasn’t been seen before).
+From these results we can see that RandomForest &amp; DecisionTree Classifier performed better than GaussianNB and Logistic Regression.</p>
+
+<p>Using RandomForest classifier&rsquo;s .feature_importance attribute I view the importance of each feature by its relative ranks when making predictions.
+The graph shows the five most important features that determine is a patient is at risk for heart disease.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import a supervised learning model that has &#39;feature_importances_&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="c1"># Train the supervised model on the training set using .fit(X_train, y_train)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="c1"># Extract the feature importances using .feature_importances_ </span>
+<span class="n">importances</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="k">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">importances</span><span class="p">)</span>
+<span class="c1"># Plot</span>
+<span class="n">vs</span><span class="o">.</span><span class="n">feature_plot</span><span class="p">(</span><span class="n">importances</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span></code></pre></div>
+<p><br></p>
+
+<p><div align="center"></p>
+
+<p><strong>Feature Importance Result</strong></p>
+
+<p><img src="images/feature_importance.PNG" alt="" />
+</div>
+<p align="center"><strong>Figure 10: Feature importance in patients data</strong> </p></p>
+
+<h4 id="confusion-matrix">confusion matrix</h4>
+
+<p>An error matrix, also known as a confusion matrix, is a specific table layout that allows visualization of the performance of an algorithm. So I imported confusion matrix mretrics from sklearn library, and ran this metric on all 4 algorithms.</p>
+
+<p><strong>Attributes</strong></p>
+
+<p><strong>True positive (TP)</strong>
+eqv. with hit</p>
+
+<p><strong>True negative (TN)</strong>
+eqv. with correct rejection</p>
+
+<p><strong>False positive (FP)</strong>
+eqv. with false alarm, Type I error</p>
+
+<p><strong>False negative (FN)</strong>
+eqv. with miss, Type II error</p>
+
+<h5 id="here-are-the-results">Here are the results</h5>
+
+<p><strong>Logistic Regression</strong>:</p>
+
+<p>The confusion matrix shows 24(true positives) +28(true negatives) = 52 correct predictions and 13(false positives)+8(false negatives) = 21 incorrect ones from the total 73 test data.
+<div align="center">
+<img src="images/logic_cm.PNG" alt="" />
+</div>
+<p></p></p>
+
+<p><strong>Gaussian Naive Bayes</strong></p>
+
+<p>The confusion matrix shows 20(true positives)+32(true negatives) = 52 correct predictions and 17(false positives)+4(false negatives) = 21 incorrect ones from the total 73 test data.
+<div align="center">
+<img src="images/gaussian_cm.PNG" alt="" />
+</div>
+<p></p></p>
+
+<p><strong>Decision Tree</strong></p>
+
+<p>The confusion matrix shows 32(true positives)+27(true negatives) = 59 correct predictions and 9(false positives)+5(false negatives) = 14 incorrect ones from the total 73 test data.</p>
+
+<p><div align="center">
+<img src="images/decision_cm.PNG" alt="" />
+</div>
+<p></p></p>
+
+<p><strong>RandomForest</strong></p>
+
+<p>The confusion matrix shows 31(true positives)+25(true negatives) = 56 correct predictions and 11(false positives)+6(false negatives) = 17 incorrect ones from the total 73 test data.</p>
+
+<p><div align="center">
+<img src="images/random_cm.PNG" alt="" />
+</div>
+<p></p></p>
+
+<p>Once again, it shows that the Decision Tree and Random Forest classifiers performed better; making higher correct predictions that the Gaussian Naives Bayes and Logistic Regression classifiers.</p>
+
+<h5 id="hyperparameters">hyperparameters</h5>
+
+<p>In machine learning, a hyperparameter is a special type of configuration variable whose value cannot be directly calculated using the data-set. So in order to figure out the optimal values of these hyperparameters, this process is called hyperparameter tuning.
+ Luckily, sklearn&rsquo;s GridSearchCV API would train and run cross validation on all possible combinations of these hyperparameters and give us the optimum configuration. Function code [via: Medium]</p>
+
+<h6 id="hyperparamter-tuning-on-random-forest-classifier">Hyperparamter tuning on Random Forest Classifier</h6>
+
+<p><br></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"> <span class="c1"># TODO: Import &#39;GridSearchCV&#39;, &#39;make_scorer&#39;, and any other necessary libraries</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
+
+<span class="c1"># TODO: Initialize the classifier</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+<span class="c1"># Create the parameters or base_estimators list you wish to tune, using a dictionary if needed.</span>
+<span class="c1"># Example: parameters = {&#39;parameter_1&#39;: [value1, value2], &#39;parameter_2&#39;: [value1, value2]}</span>
+
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">n_estimators: Number of trees in the forest
+</span><span class="s2">max_features: The number of features to consider when looking for the best split
+</span><span class="s2">max_depth: The maximum depth of the tree
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s1">&#39;max_features&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="bp">None</span><span class="p">],</span> <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="bp">None</span><span class="p">]}</span>
+
+<span class="c1"># TODO: Make an fbeta_score scoring object using make_scorer()</span>
+<span class="n">scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&#34;micro&#34;</span><span class="p">)</span>
+
+<span class="c1"># TODO: Perform grid search on the claszsifier using &#39;scorer&#39; as the scoring method using GridSearchCV()</span>
+<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scorer</span><span class="p">)</span>
+
+<span class="c1"># TODO: Fit the grid search object to the training data and find the optimal parameters using fit()</span>
+<span class="n">grid_fit</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Get the estimator</span>
+<span class="n">best_clf</span> <span class="o">=</span> <span class="n">grid_fit</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="c1"># Make predictions using the unoptimized and model</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">best_predictions</span> <span class="o">=</span> <span class="n">best_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Report the before-and-afterscores</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Unoptimized model</span><span class="se">\n</span><span class="s2">------&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Accuracy score on testing data: {:.4f}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;F-score on testing data: {:.4f}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&#34;micro&#34;</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Optimized Model</span><span class="se">\n</span><span class="s2">------&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">best_clf</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Final accuracy score on the testing data: {:.4f}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">best_predictions</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Final F-score on the testing data: {:.4f}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">best_predictions</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="n">average</span><span class="o">=</span><span class="s2">&#34;micro&#34;</span><span class="p">)))</span></code></pre></div>
+<h6 id="hyperparameter-output">hyperparameter output</h6>
+
+<p><img src="images/hyper_output.PNG" alt="" /></p>
+
+<p>As you can see, after the hyperparamter tuning, the score accuracy score improved from 79.4% to 80.8%</p>
+
+<h5 id="finally-testing-the-learning-model-for-prediction">Finally, testing the learning model for prediction</h5>
+
+<p>I gave it a bunch of values for various features, using unseen data from the larger data set and it predicted <sup>6</sup>&frasl;<sub>8</sub> correctly.
+<br></p>
+
+<p><img src="images/testing_output.PNG" alt="" /></p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>Overall model could be improved with more data and more machine learning algorithms can be compared to improve this project.The model predicted with 0.80 accuracy. The model is more specific than sensitive.</p>
+
+<h4 id="references">References</h4>
+
+<ol>
+<li>Turaga, Deepak S., and Michael Schmidt. “Mining of Sensor Data in Healthcare: A Survey.” SpringerLink, Springer, 1 Jan. 1970, link.springer.com/chapter/10.<sup>1007</sup>&frasl;<sub>978</sub>-1-4614-6309-2_14.</li>
+<li>Hindawi. “Mobile Information Systems.” Advances in Decision Sciences, Hindawi, www.hindawi.com/journals/misy/si/287385/cfp/.</li>
+<li>An Introduction to Biometric Recognition - IEEE Journals &amp; Magazine, Wiley-IEEE Press, ieeexplore.ieee.org/document/6864376.</li>
+<li>UCI Machine Learning Repository: Flags Data Set, archive.ics.uci.edu/ml/datasets/Heart Disease.</li>
+<li>“How to Make Predictions with Scikit-Learn.” Machine Learning Mastery, 5 Apr. 2018, machinelearningmastery.com/make-predictions-scikit-learn/.</li>
+<li>“Microbiome Summer School 2017.” Microbiome Summer School 2017 by aldro61, aldro61.github.io/microbiome-summer-school-2017/sections/basics/.</li>
+<li>Sifium. “Types of Classification Algorithms in Machine Learning.” Medium.com, Medium, 28 Feb. 2017, medium.com/@sifium/machine-learning-types-of-classification-9497bd4f2e14.</li>
+<li>“How to Build a Better Machine Learning Pipeline.” Datanami, 5 Sept. 2018, www.datanami.com/2018/09/05/how-to-build-a-better-machine-learning-pipeline/.</li>
+<li>10201378713505824. “How to Use Machine Learning to Predict the Quality of Wines.” FreeCodeCamp.org, FreeCodeCamp.org, 7 Feb. 2018 medium.freecodecamp.org/using-machine-learning-to-predict-the-quality-of-wines-9e2e13d7480d.</li>
+<li>“What Is Machine Learning? | How It Works, Techniques &amp; Applications.” Reconstructing an Image from Projection Data - MATLAB &amp; Simulink Example, www.mathworks.com/discovery/machine-learning.html.</li>
+<li>RSNA Pneumonia Detection Challenge | Kaggle, www.kaggle.com/neisha/heart-disease-prediction-using-logistic-regression.</li>
+<li>“Heart Disease Prediction System in Python Using Support Vector Machine and PCA | Machine Learning.” Artificial Intelligence Videos, 2 Nov. 2016, www.artificial-intelligence.video/heart-disease-prediction-system-in-python-using-support-vector-machine-and-pca-machine-learning.</li>
+<li>Ronit. “Heart Disease UCI.” RSNA Pneumonia Detection Challenge | Kaggle, 25 June 2018, www.kaggle.com/ronitf/heart-disease-uci.</li>
+</ol>
+
+  </article>
+
+  <br/>
+
+  
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  
+</section>
+
+      </div>
+      
+        <footer class="footer">
+  <section class="container">
+    
+      <div class="sns-shares sp-sns-shares">
+        <a class="sns-share twitter-share" href="https://twitter.com/intent/tweet?original_referer=https%3a%2f%2ftiyalla.github.io%2fposts%2fheartdiseasepredictions%2f&ref_src=twsrc%5Etfw&text=Evaluating%20Machine%20Learning%20Algorithm%27s%20performance%20in%20predicting%20presence%20of%20heart%20disease Tonye%20Iyalla&tw_p=tweetbutton&url=https%3a%2f%2ftiyalla.github.io%2fposts%2fheartdiseasepredictions%2f"><i class="fab fa-twitter"></i></a>
+        <a class="fb btn sns-share fb-share" href="http://www.facebook.com/share.php?u=https%3a%2f%2ftiyalla.github.io%2fposts%2fheartdiseasepredictions%2f" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-facebook-f"></i></a>
+        <a class="sns-share hatena-share" href="http://b.hatena.ne.jp/entry/https://tiyalla.github.io/posts/heartdiseasepredictions/"  data-hatena-bookmark-layout="touch" data-hatena-bookmark-width="40" data-hatena-bookmark-height="40" title="このエントリーをはてなブックマークに追加"><i class="fas fa-bookmark"></i></a>
+        <a class="sns-share line-share" href="https://social-plugins.line.me/lineit/share?url=https%3a%2f%2ftiyalla.github.io%2fposts%2fheartdiseasepredictions%2f"><i class="fab fa-line"></i></a>
+      </div>
+    
+    
+     © 2018    ·  Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/naro143/hugo-coder-portfolio">CoderPortfolio</a>. 
+
+  </section>
+</footer>
+<div class="fixed-bar">
+  <section class="container">
+    
+      <p id="privateTriggerText">Want to connect with me?→<a id="privateTrigger">Click!</a></p>
+    
+    
+      <div class="sns-shares pc-sns-shares">
+        <a class="sns-share twitter-share" href="https://twitter.com/intent/tweet?original_referer=https%3a%2f%2ftiyalla.github.io%2fposts%2fheartdiseasepredictions%2f&ref_src=twsrc%5Etfw&text=Evaluating%20Machine%20Learning%20Algorithm%27s%20performance%20in%20predicting%20presence%20of%20heart%20disease Tonye%20Iyalla&tw_p=tweetbutton&url=https%3a%2f%2ftiyalla.github.io%2fposts%2fheartdiseasepredictions%2f"><i class="fab fa-twitter"></i></a>
+        <a class="fb btn sns-share fb-share" href="http://www.facebook.com/share.php?u=https%3a%2f%2ftiyalla.github.io%2fposts%2fheartdiseasepredictions%2f" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-facebook-f"></i></a>
+       </div>
+    
+  </section>
+</div>
+
+      
+    </main>
+
+    
+
+  <script src="https://tiyalla.github.io/js/app.js"></script>
+  
+  <script>
+  (function($) {
+    $(function() {
+      $('#privateTrigger').on('click', function() {
+        $('.private').slideToggle();
+        $('#privateTriggerText').text("Thank You! →");
+      });
+    });
+   })(jQuery);
+  </script>
+  
+  </body>
+</html>
